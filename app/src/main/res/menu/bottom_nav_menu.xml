@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Beranda" />
+
+    <item
+        android:id="@+id/navigation_asset"
+        android:icon="@drawable/ic_asset"
+        android:title="Aset" />
+
+    <item
+        android:id="@+id/navigation_loan"
+        android:icon="@drawable/ic_loan"
+        android:title="Pinjaman" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profil" />
+
+</menu>

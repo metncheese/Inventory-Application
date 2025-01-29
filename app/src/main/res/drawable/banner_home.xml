@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Warna solid -->
+    <solid android:color="#2979FF" />
+
+    <!-- Sudut lengkung -->
+    <corners android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"/>
+
+    <!-- Padding dalam (optional) -->
+    <padding android:left="10dp" android:top="10dp"
+        android:right="10dp" android:bottom="30dp" />
+</shape>

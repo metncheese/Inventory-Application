@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.loans.LoansFragment">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints="username"
+        android:background="@drawable/search_view_outline"
+        android:backgroundTint="@color/white_100"
+        android:elevation="5dp"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:layoutDirection="ltr"
+        android:maxLines="1"
+        android:queryBackground="@color/black_200"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="Cari aset" />
+
+    <!--    <HorizontalScrollView-->
+    <!--        android:id="@+id/sv_filter"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/search_bar"-->
+    <!--        android:layout_marginHorizontal="18dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:paddingTop="8dp"-->
+    <!--        android:scrollbars="none">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/filterContainer"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="horizontal"/>-->
+
+    <!--    </HorizontalScrollView>-->
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/filterChipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginHorizontal="18dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_all"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="All Assets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_device"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_stationery"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Stationery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_loan"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Loan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_loans"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="6dp"
+        android:fillViewport="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filterChipGroup"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_loan" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E5E5E5"
+        android:padding="16dp">
+
+        <!-- Gambar Icon -->
+        <ImageView
+            android:id="@+id/image_barang"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="6dp"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Nama Barang -->
+        <TextView
+            android:id="@+id/tv_nama_barang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:text="Nama Barang"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/image_barang"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Nama Peminjam -->
+        <TextView
+            android:id="@+id/tv_nama_peminjam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nama Peminjam:"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_nama_barang"
+            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
+
+        <!-- Kategori -->
+        <TextView
+            android:id="@+id/tv_kategori"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Kategori:"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_nama_peminjam"
+            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
+
+        <!-- Isi Kategori-->
+        <TextView
+            android:id="@+id/fill_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Isi kategori"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_nama_peminjam"
+            app:layout_constraintStart_toEndOf="@id/tv_kategori" />
+
+        <!-- Tanggal Masuk -->
+        <TextView
+            android:id="@+id/tv_tanggal_masuk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Masuk:"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_kategori"
+            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
+
+        <!-- Isi Tanggal Masuk -->
+        <TextView
+            android:id="@+id/fill_entry_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="22 Agustus 2002"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_kategori"
+            app:layout_constraintStart_toEndOf="@id/tv_tanggal_masuk"/>
+
+        <!-- Penempatan -->
+        <TextView
+            android:id="@+id/tv_penempatan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Penempatan:"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_tanggal_masuk"
+            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
+
+        <!-- Isi Penempatan -->
+        <TextView
+            android:id="@+id/fill_position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Ruang HRD"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_tanggal_masuk"
+            app:layout_constraintStart_toEndOf="@id/tv_penempatan"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
