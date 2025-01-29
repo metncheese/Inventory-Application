@@ -1,0 +1,22 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Lingkaran -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#0D6FB6" /> <!-- Warna lingkaran -->
+        </shape>
+    </item>
+
+    <!-- Panah -->
+    <item>
+        <vector
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <path
+                android:fillColor="@color/white"
+                android:pathData="M15.41,16.59L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.59Z" />
+        </vector>
+    </item>
+</layer-list>
