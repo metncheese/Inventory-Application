@@ -1,43 +1,64 @@
 package com.example.inventoryapplication.view.loans
 
+import android.annotation.SuppressLint
 import com.example.inventoryapplication.databinding.ItemLoanBinding
-import com.example.inventoryapplication.models.Loans
+import com.example.inventoryapplication.models.Loan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
-class LoansAdapter : ListAdapter<Loans, LoansAdapter.LoansViewHolder>(DIFF_CALLBACK) {
+class LoansAdapter : ListAdapter<Loan, LoansAdapter.LoanViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoansViewHolder {
-        val binding = ItemLoanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return LoansViewHolder(binding)
-    }
+    var onItemClick: ((Loan) -> Unit)? = null // ✅ Perbaikan tipe huruf kecil jadi besar di Unit
 
-    override fun onBindViewHolder(holder: LoansViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
-
-    inner class LoansViewHolder(private val binding: ItemLoanBinding) :
+    inner class LoanViewHolder(private val binding: ItemLoanBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
+        fun bind(loan: Loan) {
+            val user = loan.user
+            val asset = loan.inventory
 
-        fun bind(loans: Loans) {
-            binding.tvNamaBarang.text = loans.name
-            binding.tvNamaPeminjam.text = loans.user
-            binding.fillCategory.text = loans.category
-            binding.fillEntryDate.text = loans.date
-            binding.fillPosition.text = loans.location
+            binding.apply {
+                tvNamaBarang.text = asset.name
+                fillBorrowerName.text = user.username
+                fillBorrowingDate.text = loan.startAt.take(10)  // ✅ ambil yyyy-MM-dd
+                fillExpDate.text = loan.expiredAt.take(10)
+
+                Glide.with(root.context)
+                    .load(asset.photo_asset)
+                    .into(imageBarang)
+
+                root.setOnClickListener {
+                    onItemClick?.invoke(loan) // ✅ invoke loan, bukan asset
+                }
+            }
         }
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoanViewHolder {
+        val binding = ItemLoanBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return LoanViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: LoanViewHolder, position: Int) {
+        val loan = getItem(position)
+        holder.bind(loan)
+    }
+
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Loans>() {
-            override fun areItemsTheSame(oldItem: Loans, newItem: Loans): Boolean {
-                return oldItem.name == newItem.name
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Loan>() {
+            override fun areItemsTheSame(oldItem: Loan, newItem: Loan): Boolean {
+                return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: Loans, newItem: Loans): Boolean {
+            override fun areContentsTheSame(oldItem: Loan, newItem: Loan): Boolean {
                 return oldItem == newItem
             }
         }

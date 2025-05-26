@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="130dp"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
     android:layout_marginVertical="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp">
@@ -50,74 +53,63 @@
             app:layout_constraintTop_toBottomOf="@id/tv_nama_barang"
             app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
 
-        <!-- Kategori -->
+        <!-- Isi Nama Penminjam -->
         <TextView
-            android:id="@+id/tv_kategori"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Kategori:"
-            android:textColor="@color/black_200"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_nama_peminjam"
-            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
-
-        <!-- Isi Kategori-->
-        <TextView
-            android:id="@+id/fill_category"
+            android:id="@+id/fill_borrower_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="Isi kategori"
+            android:text="Shabrina Emelie Lawalata"
+            android:textColor="@color/black_200"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_nama_barang"
+            app:layout_constraintStart_toEndOf="@id/tv_nama_peminjam" />
+
+        <!-- Tanggal Pinjam -->
+        <TextView
+            android:id="@+id/tv_tanggal_pinjam"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Pinjam:"
             android:textColor="@color/black_200"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tv_nama_peminjam"
-            app:layout_constraintStart_toEndOf="@id/tv_kategori" />
+            app:layout_constraintStart_toStartOf="@id/tv_nama_peminjam"/>
 
-        <!-- Tanggal Masuk -->
+        <!-- Isi Tanggal Pinjam -->
         <TextView
-            android:id="@+id/tv_tanggal_masuk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Tanggal Masuk:"
-            android:textColor="@color/black_200"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_kategori"
-            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
-
-        <!-- Isi Tanggal Masuk -->
-        <TextView
-            android:id="@+id/fill_entry_date"
+            android:id="@+id/fill_borrowing_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="22 Agustus 2002"
             android:textColor="@color/black_200"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_kategori"
-            app:layout_constraintStart_toEndOf="@id/tv_tanggal_masuk"/>
+            app:layout_constraintTop_toBottomOf="@id/fill_borrower_name"
+            app:layout_constraintStart_toEndOf="@id/tv_tanggal_pinjam"/>
 
-        <!-- Penempatan -->
+        <!-- Tanggal Pengembelian -->
         <TextView
-            android:id="@+id/tv_penempatan"
+            android:id="@+id/tv_tanggal_pengembalian"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Penempatan:"
+            android:text="Tanggal Pengembalian:"
             android:textColor="@color/black_200"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_tanggal_masuk"
-            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_tanggal_pinjam"
+            app:layout_constraintStart_toStartOf="@id/tv_tanggal_pinjam"/>
 
-        <!-- Isi Penempatan -->
+        <!-- Isi Tanggal Pengembalian-->
         <TextView
-            android:id="@+id/fill_position"
+            android:id="@+id/fill_exp_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="Ruang HRD"
+            android:text="22 November 2003"
             android:textColor="@color/black_200"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_tanggal_masuk"
-            app:layout_constraintStart_toEndOf="@id/tv_penempatan"/>
+            app:layout_constraintTop_toBottomOf="@id/fill_borrowing_date"
+            app:layout_constraintStart_toEndOf="@id/tv_tanggal_pengembalian" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

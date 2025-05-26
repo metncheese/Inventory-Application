@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.assets.AssetDetailActivity">
+
+    <!-- ProgressBar Loading -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Container untuk Gambar -->
+    <LinearLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+    </LinearLayout>
+
+    <!-- Floating Back Button -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="22dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/back_btn_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Nama Barang -->
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Barang"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Detail Informasi -->
+
+    <!-- Kategori -->
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Kategori:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/itemName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Kategori -->
+    <TextView
+        android:id="@+id/fill_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="Elektronik"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_category"
+        app:layout_constraintStart_toEndOf="@id/tv_category" />
+
+    <!-- Tanggal Masuk Barang -->
+    <TextView
+        android:id="@+id/tv_entry_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Tanggal Masuk:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/tv_category"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Tanggal Masuk Barang -->
+    <TextView
+        android:id="@+id/fill_entry_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="DD/MM/YY"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_entry_date"
+        app:layout_constraintStart_toEndOf="@id/tv_entry_date" />
+
+    <!-- Penempatan Barang -->
+    <TextView
+        android:id="@+id/tv_placement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Penempatan:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/tv_entry_date"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Penempatan Barang -->
+    <TextView
+        android:id="@+id/fill_placement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="Ruang Direksi"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_placement"
+        app:layout_constraintStart_toEndOf="@id/tv_placement" />
+
+    <!-- Status Kepemilikan Barang -->
+    <TextView
+        android:id="@+id/tv_ownership"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Status Kepemilikan:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/tv_placement"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Kepemilikan Barang -->
+    <TextView
+        android:id="@+id/fill_ownership"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="Milik Perusahaan"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_ownership"
+        app:layout_constraintStart_toEndOf="@id/tv_ownership" />
+
+    <!-- Status Barang -->
+    <TextView
+        android:id="@+id/tv_asset_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Status Barang:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/tv_ownership"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Status Barang -->
+    <TextView
+        android:id="@+id/fill_asset_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="Tidak dapat dipinjam"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_asset_status"
+        app:layout_constraintStart_toEndOf="@id/tv_asset_status" />
+
+    <!-- Tanggal Pengembalian Barang -->
+    <TextView
+        android:id="@+id/tv_return_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Tanggal Pengembalian:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/tv_asset_status"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Tanggal Pengembalian Barang -->
+    <TextView
+        android:id="@+id/fill_return_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="-"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_return_date"
+        app:layout_constraintStart_toEndOf="@id/tv_return_date" />
+
+    <!-- Total Barang -->
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="Jumlah:"
+        android:textSize="16sp"
+        android:textColor="@color/black_200"
+        app:layout_constraintTop_toBottomOf="@id/tv_return_date"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Isi Total Barang -->
+    <TextView
+        android:id="@+id/fill_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:hint="30"
+        android:text=""
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/tv_total"
+        app:layout_constraintStart_toEndOf="@id/tv_total" />
+
+    <!-- Tombol Edit -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editButton"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/deleteButton"
+        android:layout_marginTop="40dp"
+        android:text="Edit Data"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorBlue"
+        app:cornerRadius="10dp" />
+
+    <!-- Tombol Hapus -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteButton"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_total"
+        app:layout_constraintStart_toEndOf="@id/editButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:text="Hapus"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/red_700"
+        app:cornerRadius="10dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

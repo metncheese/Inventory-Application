@@ -2,6 +2,9 @@
     <string name="app_name">Inventory Application</string>
     <string name="sign_up"><u>Sign Up</u></string>
     <string name="sign_in"><u>Sign In</u></string>
+    <string name="add_photo"><u>Tambah Foto</u></string>
+    <string name="edit_photo"><u>Edit Foto</u></string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

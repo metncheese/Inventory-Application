@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.listuserdata.ListUserDataActivity" >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_500"
+        app:title="Daftar Informasi Pegawai"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints="username"
+        android:background="@drawable/search_view_outline"
+        android:backgroundTint="@color/white_100"
+        android:elevation="5dp"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:layoutDirection="ltr"
+        android:maxLines="1"
+        android:queryBackground="@color/black_200"
+        app:iconifiedByDefault="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="Cari data pegawai" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_assets"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="6dp"
+        android:fillViewport="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_data_staff" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

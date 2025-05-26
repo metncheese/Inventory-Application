@@ -6,12 +6,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.assets.AssetsFragment">
 
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_500"
+        app:title="Aset Perusahaan"
+        app:titleTextColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginHorizontal="18dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
         android:autofillHints="username"
         android:background="@drawable/search_view_outline"
         android:backgroundTint="@color/white_100"
@@ -22,32 +32,21 @@
         android:maxLines="1"
         android:queryBackground="@color/black_200"
         app:iconifiedByDefault="false"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:queryBackground="@android:color/transparent"
         app:queryHint="Cari aset" />
 
-<!--    <HorizontalScrollView-->
-<!--        android:id="@+id/sv_filter"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/search_bar"-->
-<!--        android:layout_marginHorizontal="18dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:paddingTop="8dp"-->
-<!--        android:scrollbars="none">-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/filterContainer"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"/>-->
-
-<!--    </HorizontalScrollView>-->
-
+    <ImageButton
+        android:id="@+id/filter_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_filter"
+        android:contentDescription="Filter data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/search_bar"
+        android:layout_marginEnd="18dp" />
 
         <com.google.android.material.chip.ChipGroup
         android:id="@+id/filterChipGroup"
@@ -58,33 +57,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="18dp"
         android:layout_marginHorizontal="18dp"
-        app:singleSelection="true">
+        app:singleSelection="false">
 
           <com.google.android.material.chip.Chip
                 android:id="@+id/chip_all"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:text="All Assets"
+                android:text="All Asset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_device"
+                android:id="@+id/chip_electronic"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:text="Device"
+                android:text="Elektronik"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_stationery"
+                android:id="@+id/chip_furniture"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:text="Stationery"
+                android:text="Furniture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip_loan"
+                android:id="@+id/chip_vehicle"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:text="Loan"
+                android:text="Kendaraan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -106,5 +105,21 @@
         app:layout_constraintTop_toBottomOf="@id/filterChipGroup"
         tools:itemCount="10"
         tools:listitem="@layout/item_asset" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@android:color/darker_gray"
+        android:contentDescription="Tambah aset baru"
+        android:elevation="0dp"
+        app:borderWidth="2dp"
+        android:focusable="true"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

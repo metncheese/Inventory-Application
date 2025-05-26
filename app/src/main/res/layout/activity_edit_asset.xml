@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ScrollViewCount"
+    tools:context=".view.assets.EditAssetActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_500"
+        app:title="Edit Aset"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Container untuk Gambar -->
+    <LinearLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/asset_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        app:layout_constraintBottom_toTopOf="@id/btn_save"
+        tools:ignore="ScrollViewCount">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrap_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <!-- Nama Barang -->
+            <TextView
+                android:id="@+id/assetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Barang"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Detail Informasi -->
+
+            <!-- Kategori -->
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="43dp"
+                android:text="Kategori"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/assetName"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/categoryEditTextLayout"
+                style="@style/RoundedTextInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="24dp"
+                app:endIconCheckable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_category"
+                app:layout_constraintTop_toBottomOf="@id/assetName"
+                android:hint="Kategori" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/categoryEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Tanggal Masuk Barang -->
+            <TextView
+                android:id="@+id/tv_entry_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"
+                android:text="Tanggal\nMasuk"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/tv_category"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/entryDateEditTextLayout"
+                style="@style/RoundedTextInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="14dp"
+                app:endIconCheckable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/categoryEditTextLayout"
+                app:layout_constraintTop_toBottomOf="@id/categoryEditTextLayout"
+                android:hint="YYYY-MM-DD" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/entryDateEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="14sp"
+                    android:inputType="date"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Penempatan Barang -->
+            <TextView
+                android:id="@+id/tv_placement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="38dp"
+                android:text="Penempatan"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/tv_entry_date"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/placementEditTextLayout"
+                style="@style/RoundedTextInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="14dp"
+                app:endIconCheckable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/entryDateEditTextLayout"
+                app:layout_constraintTop_toBottomOf="@id/entryDateEditTextLayout"
+                android:hint="Penempatan Barang" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/placementEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Status Kepemilikan Barang -->
+            <TextView
+                android:id="@+id/tv_ownership"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="44dp"
+                android:text="Status\nKepemilikan"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/tv_placement"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ownershipDropdownLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="14dp"
+                app:endIconCheckable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/placementEditTextLayout"
+                app:layout_constraintTop_toBottomOf="@id/placementEditTextLayout"
+                android:hint="Status Kepemilikan" >
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/ownershipDropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Status Barang -->
+            <TextView
+                android:id="@+id/tv_asset_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="36dp"
+                android:text="Status Barang"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/tv_ownership"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/assetStatusDropdownLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/ownershipDropdownLayout"
+                app:layout_constraintTop_toBottomOf="@id/ownershipDropdownLayout"
+                android:hint="Status Barang" >
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/assetStatusDropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:textSize="14sp"
+                    android:inputType="none"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Tanggal Pengembalian Barang -->
+            <TextView
+                android:id="@+id/tv_return_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="42dp"
+                android:text="Tanggal\nPengembalian"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/tv_asset_status"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/returnDateEditTextLayout"
+                style="@style/RoundedTextInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="14dp"
+                app:endIconCheckable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/assetStatusDropdownLayout"
+                app:layout_constraintTop_toBottomOf="@id/assetStatusDropdownLayout"
+                android:hint="YYYY-MM-DD" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/returnDateEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="14sp"
+                    android:inputType="date"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Total Barang -->
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="36dp"
+                android:text="Jumlah"
+                android:textSize="16sp"
+                android:textColor="@color/black_200"
+                app:layout_constraintTop_toBottomOf="@id/tv_return_date"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/totalEditTextLayout"
+                style="@style/RoundedTextInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="14dp"
+                app:endIconCheckable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/returnDateEditTextLayout"
+                app:layout_constraintTop_toBottomOf="@id/returnDateEditTextLayout"
+                android:hint="Total di isi angka" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/totalEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+<!--    Tombol Simpan-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:textSize="16sp"
+        app:cornerRadius="12dp"
+        android:backgroundTint="@color/blue_500"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

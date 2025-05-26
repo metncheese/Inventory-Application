@@ -21,8 +21,11 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="18dp"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -42,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_alamat"
+            android:id="@+id/txt_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_name"
@@ -88,7 +91,7 @@
                     android:id="@+id/tv_value_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:text="0"
                     android:textSize="20sp"
                     android:textColor="@android:color/black"
                     android:gravity="center"/>
@@ -96,7 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Peminjaman"
+                    android:text="Total\nPeminjaman"
                     android:textSize="14sp"
                     android:textColor="@android:color/darker_gray"
                     android:gravity="center"/>
@@ -115,7 +118,7 @@
                     android:id="@+id/tv_value_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:text="0"
                     android:textSize="20sp"
                     android:gravity="center"
                     android:textColor="@android:color/black"/>
@@ -123,7 +126,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Aset Tersedia"
+                    android:text="Aset\nTersedia"
                     android:textSize="14sp"
                     android:gravity="center"
                     android:textColor="@android:color/darker_gray"/>
@@ -141,7 +144,7 @@
                     android:id="@+id/tv_value_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:text="0"
                     android:textSize="20sp"
                     android:gravity="center"
                     android:textColor="@android:color/black"/>
@@ -149,8 +152,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Aset
-                    Keluar"
+                    android:text="Aset\nDipinjam"
                     android:textSize="14sp"
                     android:gravity="center"
                     android:textColor="@android:color/darker_gray" />
@@ -168,7 +170,7 @@
                     android:id="@+id/tv_value_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100"
+                    android:text="0"
                     android:textSize="20sp"
                     android:gravity="center"
                     android:textColor="@android:color/black"/>
@@ -176,8 +178,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total
-                    Aset"
+                    android:text="Total\nAset"
                     android:textSize="14sp"
                     android:gravity="center"
                     android:textColor="@android:color/darker_gray"/>
@@ -225,5 +226,17 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,28 +40,28 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Kategori -->
+        <!-- Jumlah -->
         <TextView
-            android:id="@+id/tv_kategori"
+            android:id="@+id/tv_jumlah"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Kategori:"
+            android:text="Jumlah:"
             android:textColor="@color/black_200"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tv_nama_barang"
             app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
 
-        <!-- Isi Kategori-->
+        <!-- Isi Jumlah -->
         <TextView
-            android:id="@+id/fill_category"
+            android:id="@+id/fill_total"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="Isi kategori"
+            android:text="10"
             android:textColor="@color/black_200"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tv_nama_barang"
-            app:layout_constraintStart_toEndOf="@id/tv_kategori" />
+            app:layout_constraintStart_toEndOf="@id/tv_jumlah" />
 
         <!-- Tanggal Masuk -->
         <TextView
@@ -71,8 +71,8 @@
             android:text="Tanggal Masuk:"
             android:textColor="@color/black_200"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_kategori"
-            app:layout_constraintStart_toStartOf="@id/tv_nama_barang"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_jumlah"
+            app:layout_constraintStart_toStartOf="@id/tv_jumlah"/>
 
         <!-- Isi Tanggal Masuk -->
         <TextView
@@ -83,7 +83,7 @@
             android:text="22 Agustus 2002"
             android:textColor="@color/black_200"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_kategori"
+            app:layout_constraintTop_toBottomOf="@id/fill_total"
             app:layout_constraintStart_toEndOf="@id/tv_tanggal_masuk"/>
 
         <!-- Penempatan -->
@@ -99,14 +99,14 @@
 
         <!-- Isi Penempatan -->
         <TextView
-            android:id="@+id/fill_position"
+            android:id="@+id/fill_placement"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="Ruang HRD"
             android:textColor="@color/black_200"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/tv_tanggal_masuk"
+            app:layout_constraintTop_toBottomOf="@id/fill_entry_date"
             app:layout_constraintStart_toEndOf="@id/tv_penempatan"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

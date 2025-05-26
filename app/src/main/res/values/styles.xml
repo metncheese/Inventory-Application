@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="CustomHintAppearance" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">#FF888888</item> <!-- Warna hint -->
+        <item name="android:textSize">14sp</item>       <!-- Ukuran hint -->
+    </style>
+
+</resources>

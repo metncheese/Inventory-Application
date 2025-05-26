@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- FAB utama dengan warna abu-abu gelap -->
+    <item android:insetLeft="3dp" android:insetTop="3dp" android:insetRight="3dp" android:insetBottom="3dp">
+        <shape android:shape="oval">
+            <solid android:color="#3A3A3A"/> <!-- Warna abu-abu lebih gelap -->
+            <stroke android:width="4dp" android:color="@color/black"/>
+        </shape>
+    </item>
+</layer-list>

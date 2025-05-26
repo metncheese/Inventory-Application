@@ -12,7 +12,7 @@
     </style>
 
     <style name="RoundedCorners" parent="">
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">6dp</item>
     </style>
 
 </resources>

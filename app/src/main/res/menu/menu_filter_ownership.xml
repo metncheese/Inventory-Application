@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_all"
+        android:title="Semua" />
+    <item
+        android:id="@+id/menu_owned"
+        android:title="Perusahaan" />
+    <item
+        android:id="@+id/menu_borrowed"
+        android:title="Pinjaman" />
+</menu>
