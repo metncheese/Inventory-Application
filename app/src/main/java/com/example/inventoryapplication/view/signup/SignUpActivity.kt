@@ -46,9 +46,14 @@ class SignUpActivity : AppCompatActivity() {
                 val username = userNameEditText.text.toString().trim()
                 val email = emailEditText.text.toString().trim()
                 val password = passwordEditText.text.toString().trim()
+                val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
-                if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                    signUpViewModel.postSignUp(username, email, password)
+                if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                    if (password == confirmPassword) {
+                        signUpViewModel.postSignUp(username, email, password, confirmPassword)
+                    } else {
+                        Toast.makeText(this@SignUpActivity, "Password dan konfirmasi tidak cocok", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     Toast.makeText(this@SignUpActivity, "Please fill all fields", Toast.LENGTH_SHORT).show()
                 }

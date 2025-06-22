@@ -189,11 +189,15 @@ class AddAssetActivity : AppCompatActivity() {
 
         val invStatus = when (binding.ownershipDropdown.text.toString()) {
             "Perusahaan" -> "owned"
-            "Pinjaman" -> "borrowed"
+            "Pinjaman" -> "loan" // FIX PAKAI borrowed
             else -> "owned"
         }
 
         val imageFile = imageUri?.let { uriToFile(it) }
+        if (imageFile == null) {
+            Toast.makeText(this, "Gambar harus dipilih (jpg/png)", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         MainScope().launch {
             val token = viewModel.repository.getSession().first().token
@@ -217,7 +221,6 @@ class AddAssetActivity : AppCompatActivity() {
             }
         }
     }
-
 
     private fun uriToFile(uri: Uri): File {
         val inputStream = contentResolver.openInputStream(uri)

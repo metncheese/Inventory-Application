@@ -12,6 +12,6 @@ data class DashboardData(
     @SerializedName("total_aset") val totalAset: Int,
     @SerializedName("aset_tersedia") val asetTersedia: Int,
     @SerializedName("aset_dipinjam") val asetDipinjam: Int,
-    @SerializedName("total_peminjaman") val totalPeminjaman: Int
+    @SerializedName("aset_perusahaan") val asetPerusahaan: Int,
+    @SerializedName("aset_pinjaman") val asetPinjaman: Int
 )
-

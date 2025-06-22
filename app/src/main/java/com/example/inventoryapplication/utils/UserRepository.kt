@@ -66,11 +66,11 @@ class UserRepository private constructor(
     suspend fun saveSignInState() = userPreference.signin()
 
     // POST Sign Up
-    suspend fun postSignUp(name: String, email: String, password: String) {
+    suspend fun postSignUp(name: String, email: String, password: String, confirmPassword: String) {
         _signUpResponse.postValue(Result.Loading)
         try {
             val response = withContext(Dispatchers.IO) {
-                apiService.signup(name, email, password)
+                apiService.signup(name, email, password, confirmPassword)
             }
             _signUpResponse.postValue(Result.Success(response))
             Log.d(TAG, "SignUp success: $response")

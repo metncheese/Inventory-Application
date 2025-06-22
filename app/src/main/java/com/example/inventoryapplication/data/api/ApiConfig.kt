@@ -30,7 +30,7 @@ object ApiConfig {
             .create()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://fauziewan.my.id/fauziewan.my.id/api/")
+            .baseUrl("https://rehan.printa.id/api/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()

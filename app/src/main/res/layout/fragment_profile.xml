@@ -37,7 +37,8 @@
         app:layout_constraintTop_toBottomOf="@id/ivProfile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="12dp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tvEmail"
@@ -48,20 +49,22 @@
         android:textColor="@color/black_200"
         app:layout_constraintTop_toBottomOf="@id/tvUsername"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText" />
 
     <!-- Tombol Edit Profile -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Profile"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/blue_400"
+        android:text="Edit Profile"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <!-- Get All User Data -->
     <TextView
@@ -79,14 +82,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        tools:ignore="HardcodedText,UseCompatTextViewDrawableXml" />
 
     <!-- Menu Logout -->
     <TextView
         android:id="@+id/tvLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="Sign Out"
         android:textSize="16sp"
         android:textColor="@android:color/holo_red_dark"
         android:paddingVertical="16dp"
@@ -97,5 +101,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        tools:ignore="HardcodedText,UseCompatTextViewDrawableXml" />
 </androidx.constraintlayout.widget.ConstraintLayout>

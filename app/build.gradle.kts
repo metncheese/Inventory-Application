@@ -17,7 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", "\"https://fauziewan.my.id/fauziewan.my.id/api/\"")
+        buildConfigField("String", "API_KEY", "\"https://rehan.printa.id/api/\"")
 
     }
 
@@ -79,7 +79,11 @@ dependencies {
     //pie chart
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-    // Hilt DI
+    //Hilt DI
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.48")
+
+    //Post Notification
+    implementation ("androidx.work:work-runtime-ktx:2.10.1")
+    implementation ("com.jakewharton.threetenabp:threetenabp:1.4.0")
 }

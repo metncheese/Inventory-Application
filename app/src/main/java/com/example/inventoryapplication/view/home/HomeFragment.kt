@@ -1,5 +1,6 @@
 package com.example.inventoryapplication.view.home
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,15 @@ import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
+import android.content.Context
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import java.util.concurrent.TimeUnit
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.Duration
+import com.example.inventoryapplication.utils.TenggatNotificationWorker
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +48,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        scheduleTenggatNotification(requireContext())
+//        binding.btnTestNotif.setOnClickListener {
+//            triggerTenggatNotifWorker(requireContext())
+//        }
         setupPieChart()
         observeProfile()
         observeDashboard()
@@ -99,6 +114,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun observeDashboard() {
         viewModel.dashboardData.observe(viewLifecycleOwner) { result ->
             when (result) {
@@ -107,22 +123,26 @@ class HomeFragment : Fragment() {
                 }
                 is Result.Success -> {
                     val dashboard = result.data
-                    binding.tvValue1.text = dashboard.totalPeminjaman.toString()
-                    binding.tvValue2.text = dashboard.asetTersedia.toString()
-                    binding.tvValue3.text = dashboard.asetDipinjam.toString()
-                    binding.tvValue4.text = dashboard.totalAset.toString()
+                    binding.tvValue1.text = dashboard.asetTersedia.toString()
+                    binding.tvValue2.text = dashboard.asetDipinjam.toString()
+                    binding.tvValue3.text = dashboard.totalAset.toString()
+                    binding.tvValue4.text = dashboard.asetPerusahaan.toString()
+                    binding.tvValue5.text = dashboard.asetPinjaman.toString()
 
+                    // Contoh PieChart update (silakan sesuaikan entry sesuai kebutuhan)
                     val entries = listOf(
+                        PieEntry(dashboard.asetTersedia.toFloat(), "Aset Tersedia"),
                         PieEntry(dashboard.asetDipinjam.toFloat(), "Aset Dipinjam"),
-                        PieEntry(dashboard.totalPeminjaman.toFloat(), "Total Peminjaman"),
-                        PieEntry(dashboard.asetTersedia.toFloat(), "Aset Tersedia")
+                        PieEntry(dashboard.asetPerusahaan.toFloat(), "Aset Perusahaan"),
+                        PieEntry(dashboard.asetPinjaman.toFloat(), "Aset Pinjaman")
                     )
 
                     val dataSet = PieDataSet(entries, "")
                     dataSet.colors = listOf(
-                        Color.rgb(255, 165, 0),
+                        Color.rgb(255, 165, 0), // orange
                         Color.BLUE,
-                        Color.GREEN
+                        Color.GREEN,
+                        Color.GRAY
                     )
                     dataSet.sliceSpace = 3f
                     dataSet.setDrawValues(false)
@@ -160,5 +180,33 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+//    private fun triggerTenggatNotifWorker(context: Context) {
+//        val testWork = OneTimeWorkRequestBuilder<TenggatNotificationWorker>().build()
+//        WorkManager.getInstance(context).enqueue(testWork)
+//    }
+
+    private fun scheduleTenggatNotification(context: Context) {
+        // Setiap hari sekali (repeatInterval 1 hari)
+        val workRequest = PeriodicWorkRequestBuilder<TenggatNotificationWorker>(
+            1, TimeUnit.DAYS
+        )
+            // Tambahkan initialDelay supaya eksekusi pertama tepat jam 8 pagi
+            .setInitialDelay(calculateInitialDelay(), TimeUnit.MILLISECONDS)
+            .build()
+
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            "TenggatNotificationWork",
+            ExistingPeriodicWorkPolicy.REPLACE,
+            workRequest
+        )
+    }
+
+    private fun calculateInitialDelay(): Long {
+        val now = LocalDateTime.now()
+        val nextRun = now.withHour(8).withMinute(0).withSecond(0)
+        val delay = if (now.isAfter(nextRun)) Duration.between(now, nextRun.plusDays(1)) else Duration.between(now, nextRun)
+        return delay.toMillis()
     }
 }

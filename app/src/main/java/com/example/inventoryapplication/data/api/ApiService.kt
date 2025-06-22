@@ -31,7 +31,8 @@ interface ApiService {
     suspend fun signup(
         @Field("username") fullName: String,
         @Field("email") email: String,
-        @Field("password") password: String
+        @Field("password") password: String,
+        @Field("confirmation_password") confirmPassword: String
     ): SignUpResponse
 
     //Sign In

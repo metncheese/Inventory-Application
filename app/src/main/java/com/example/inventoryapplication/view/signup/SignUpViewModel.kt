@@ -13,9 +13,9 @@ class SignUpViewModel(private val repository: UserRepository) : ViewModel() {
 
     val signUpResult: LiveData<Result<SignUpResponse>> = repository.signUpResponse
 
-    fun postSignUp(username: String, email: String, password: String) {
+    fun postSignUp(username: String, email: String, password: String, confirmPassword: String) {
         viewModelScope.launch {
-            repository.postSignUp(username, email, password)
+            repository.postSignUp(username, email, password, confirmPassword)
         }
     }
 }
